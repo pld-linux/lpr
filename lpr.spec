@@ -1,9 +1,7 @@
 Summary:	Print server and client for local and remote printing
 Summary(de):	Druckserver und Client zum Drucken im Lokal- und Fernbetrieb
-Summary(fr):	Serveur d'impression et client pour l'impression \
-Summary(fr):	locale ou distante.
-Summary(pl):	Serwer wydruku i oprogramowanie klienckie do lokalnego i 
-Summary(pl):	zdalnego drukowania.
+Summary(fr):	Serveur d'impression et client pour l'impression locale ou distante
+Summary(pl):	Serwer wydruku i oprogramowanie klienckie do lokalnego i zdalnego drukowania
 Summary(tr):	Yerel ve uzak yazýcýlara eriþim için sunucu ve istemci
 Name:		lpr
 Version:	0.33
@@ -32,7 +30,7 @@ Ce paquetage gère les services d'impression. Il s'occupe des files d'attente,
 envoie les travaux aux imprimantes locales et distantes et reçoit les travaux
 des clients distants.
 
-%description
+%description -l pl
 Pakiet zawiera oprogramowanie do zarz±dzania kolejkami wydruku,
 wysy³ania zadañ drukowania do drukarek localnych i zdalnych, oraz 
 przyjmowania zleceñ wydruku od zdalnych klientów.
@@ -58,9 +56,7 @@ install -d $RPM_BUILD_ROOT%{_datadir}/fonts/vfont/{B,I,R,S}
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/rc.d/init.d/lpd
 install %{SOURCE2} $RPM_BUILD_ROOT/etc/sysconfig/lpd
 
-make \
-    DESTDIR=$RPM_BUILD_ROOT \
-    install 
+make install DESTDIR=$RPM_BUILD_ROOT
 
 gzip -9fn $RPM_BUILD_ROOT%{_mandir}/man[158]/*
 
