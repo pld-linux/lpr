@@ -72,7 +72,7 @@ install printcap.5 $RPM_BUILD_ROOT/usr/man/man5
 for i in lpc/lpc.8 lpd/lpd.8 pac/pac.8; do
 install $i $RPM_BUILD_ROOT/usr/man/man8; done
 
-bzip2 -9 $RPM_BUILD_ROOT/usr/man/man[158]/*
+gzip -9fn $RPM_BUILD_ROOT/usr/man/man[158]/*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -87,6 +87,7 @@ fi
 
 %files
 %defattr(644,root,root,755)
+
 %attr(750,root,root) /etc/rc.d/init.d/lpd
 
 %attr(4710,root,lp) /usr/bin/lpq
