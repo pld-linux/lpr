@@ -59,10 +59,10 @@ install lpr/lpr $RPM_BUILD_ROOT%{_bindir}
 install lprm/lprm $RPM_BUILD_ROOT%{_bindir}
 install lptest/lptest $RPM_BUILD_ROOT%{_bindir}
 
-install lpc/lpc $RPM_BUILD_ROOT/usr/sbin
-install lpd/lpd $RPM_BUILD_ROOT/usr/sbin
-install pac/pac $RPM_BUILD_ROOT/usr/sbin
-install filters/lpf $RPM_BUILD_ROOT/usr/sbin
+install lpc/lpc $RPM_BUILD_ROOT%{_sbindir}
+install lpd/lpd $RPM_BUILD_ROOT%{_sbindir}
+install pac/pac $RPM_BUILD_ROOT%{_sbindir}
+install filters/lpf $RPM_BUILD_ROOT%{_sbindir}
 
 for i in lpq/lpq.1 lpr/lpr.1 lprm/lprm.1 lptest/lptest.1; do
 install $i $RPM_BUILD_ROOT%{_mandir}/man1; done
@@ -95,7 +95,7 @@ fi
 %attr(4710,root,lp) %{_bindir}/lprm
 %attr(0755,root,lp) %{_bindir}/lptest
 
-%attr(755,root,root) /usr/sbin/*
+%attr(755,root,root) %{_sbindir}/*
 %{_mandir}/man[158]/*
 
 %changelog
