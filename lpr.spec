@@ -5,7 +5,7 @@ Summary(pl):	Serwer wydruku i oprogramowanie klienckie do lokalnego i zdalnego d
 Summary(tr):	Yerel ve uzak yazýcýlara eriþim için sunucu ve istemci
 Name:		lpr
 Version:	0.72
-Release:	2
+Release:	2.1
 License:	distributable
 Group:		Applications/System
 Source0:	http://dl.sourceforge.net/lpr/%{name}-%{version}.tar.gz
@@ -61,7 +61,8 @@ rm -rf $RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT{/etc/{rc.d/init.d,sysconfig},/var/lock} \
 	$RPM_BUILD_ROOT{%{_bindir},%{_sbindir},%{_mandir}/man{1,5,8}} \
-	$RPM_BUILD_ROOT%{_fontsdir}/vfont/{B,I,R,S}
+	$RPM_BUILD_ROOT%{_fontsdir}/vfont/{B,I,R,S} \
+	$RPM_BUILD_ROOT/var/spool/lpd/lp
 
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/rc.d/init.d/lpd
 install %{SOURCE2} $RPM_BUILD_ROOT/etc/sysconfig/lpd
@@ -106,3 +107,5 @@ fi
 %{_fontsdir}/vfont
 
 %ghost /var/lock/*
+%dir %attr(770,root,lp) %{_var}/spool/lpd
+%dir %attr(770,root,lp) %{_var}/spool/lpd/lp
