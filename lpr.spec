@@ -54,10 +54,10 @@ install -d $RPM_BUILD_ROOT/var/spool/lpd
 
 install lpd.init $RPM_BUILD_ROOT/etc/rc.d/init.d/lpd
 
-install lpq/lpq $RPM_BUILD_ROOT/usr/bin
-install lpr/lpr $RPM_BUILD_ROOT/usr/bin
-install lprm/lprm $RPM_BUILD_ROOT/usr/bin
-install lptest/lptest $RPM_BUILD_ROOT/usr/bin
+install lpq/lpq $RPM_BUILD_ROOT%{_bindir}
+install lpr/lpr $RPM_BUILD_ROOT%{_bindir}
+install lprm/lprm $RPM_BUILD_ROOT%{_bindir}
+install lptest/lptest $RPM_BUILD_ROOT%{_bindir}
 
 install lpc/lpc $RPM_BUILD_ROOT/usr/sbin
 install lpd/lpd $RPM_BUILD_ROOT/usr/sbin
@@ -90,10 +90,10 @@ fi
 
 %attr(750,root,root) /etc/rc.d/init.d/lpd
 
-%attr(4710,root,lp) /usr/bin/lpq
-%attr(4710,root,lp) /usr/bin/lpr
-%attr(4710,root,lp) /usr/bin/lprm
-%attr(0755,root,lp) /usr/bin/lptest
+%attr(4710,root,lp) %{_bindir}/lpq
+%attr(4710,root,lp) %{_bindir}/lpr
+%attr(4710,root,lp) %{_bindir}/lprm
+%attr(0755,root,lp) %{_bindir}/lptest
 
 %attr(755,root,root) /usr/sbin/*
 %{_mandir}/man[158]/*
