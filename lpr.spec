@@ -8,8 +8,6 @@ Version:	0.33
 Release:	6
 License:	distributable
 Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
 Source0:	%{name}-%{version}.tar.gz
 #Source0:	ftp://ftp.sourceforge.net/pub/sourceforge/lpr/%{name}-%{version}.tar.bz2
 Source1:	lpd.init
