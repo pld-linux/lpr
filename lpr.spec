@@ -63,6 +63,9 @@ if [ $1 = 0 ]; then
    /sbin/chkconfig --del lpd
 fi
 
+%clean
+rm -rf $RPM_BUILD_ROOT
+
 %files
 %attr(6755, root,  lp) /usr/bin/lpq
 %attr(6755, root,  lp) /usr/bin/lpr
