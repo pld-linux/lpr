@@ -97,17 +97,3 @@ fi
 %{_datadir}/fonts
 
 %ghost /var/lock/*
-
-%changelog
-* Wed Sep 30 1998 Marcin Korzonek <mkorz@shadow.eu.org>
-  [0.33-4]
-- translations modified for pl
-- defined files permission
-- allow building from non root account
-
-* Tue Jun 30 1998 Wojtek ¦lusarczyk <wojtek@shadow.eu.org>
-  [0.31-5]
-- build against glibc-2.1,
-- major changes - follow the PLD policy.
-- fixed invalid files permissions,
-- start at RH spec.
