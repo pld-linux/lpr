@@ -14,6 +14,7 @@ Source1:	lpd.init
 Source2:	lpd.sysconfig
 Patch0:		%{name}-misc.patch
 Prereq:		/sbin/chkconfig
+Requires:	rc-scripts
 Buildroot:	/tmp/%{name}-%{version}-root
 
 %description
