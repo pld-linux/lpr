@@ -1,0 +1,4 @@
+# Customized setings for lpd
+
+# Nice level for lpd
+SERVICE_RUN_NICE_LEVEL="+5"
