@@ -6,14 +6,16 @@ Summary(tr):	Yerel ve uzak yazýcýlara eriþim için sunucu ve istemci
 Name:		lpr
 Version:	0.33
 Release:	5
-Copyright:	distributable
+License:	distributable
 Group:		Applications/System
 Group(de):	Applikationen/System
 Group(pl):	Aplikacje/System
 Source0:	%{name}-%{version}.tar.gz
+#Source0:	ftp://ftp.sourceforge.net/pub/sourceforge/lpr/%{name}-%{version}.tar.bz2
 Source1:	lpd.init
 Source2:	lpd.sysconfig
 Patch0:		%{name}-misc.patch
+URL:		http://lpr.sourceforge.net/
 Prereq:		/sbin/chkconfig
 Prereq:		rc-scripts
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
