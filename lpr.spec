@@ -18,6 +18,7 @@ Patch0:		%{name}-misc.patch
 URL:		http://lpr.sourceforge.net/
 Prereq:		/sbin/chkconfig
 Prereq:		rc-scripts
+Obsoletes:	LPRng
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
