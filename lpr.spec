@@ -77,7 +77,7 @@ fi
 %files
 %defattr(644,root,root,755)
 
-%attr(755,root,root) /etc/rc.d/init.d/lpd
+%attr(754,root,root) /etc/rc.d/init.d/lpd
 %attr(640,root,root) %config %verify(not size mtime md5) /etc/sysconfig/*
 
 %attr(4710,root,lp) %{_bindir}/lpq
