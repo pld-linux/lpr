@@ -8,7 +8,7 @@ Version:	0.72
 Release:	1
 License:	distributable
 Group:		Applications/System
-Source0:	ftp://ftp.sourceforge.net/pub/sourceforge/lpr/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/lpr/%{name}-%{version}.tar.gz
 Source1:	lpd.init
 Source2:	lpd.sysconfig
 Source3:	%{name}-non-english-man-pages.tar.bz2
