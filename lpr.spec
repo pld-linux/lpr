@@ -5,7 +5,7 @@ Summary(pl):	Serwer wydruku i oprogramowanie klienckie do lokalnego i zdalnego d
 Summary(tr):	Yerel ve uzak yazýcýlara eriþim için sunucu ve istemci
 Name:		lpr
 Version:	0.72
-Release:	1
+Release:	2
 License:	distributable
 Group:		Applications/System
 Source0:	http://dl.sourceforge.net/lpr/%{name}-%{version}.tar.gz
@@ -13,6 +13,7 @@ Source1:	lpd.init
 Source2:	lpd.sysconfig
 Source3:	%{name}-non-english-man-pages.tar.bz2
 Patch0:		%{name}-misc.patch
+Patch1:		%{name}-rmjobfix.patch
 URL:		http://lpr.sourceforge.net/
 Prereq:		/sbin/chkconfig
 Prereq:		rc-scripts
@@ -47,6 +48,7 @@ kabul eder.
 %prep
 %setup -q
 %patch -p1
+%patch1 -p0
 
 %build
 %{__make} OPT_FLAGS="%{rpmcflags}"
