@@ -1,26 +1,3 @@
-diff -Nur lpr-0.33/Makefile lpr-0.33.pld/Makefile
---- lpr-0.33/Makefile	Mon Aug  3 23:57:40 1998
-+++ lpr-0.33.pld/Makefile	Mon Jun  7 09:33:24 1999
-@@ -3,8 +3,8 @@
- VERSION=$(shell awk '/^Version:/ { print $$2 }' lpr.spec)
- CVSTAG = r$(subst .,-,$(VERSION))
- 
--CFLAGS	= -O2 $(RPM_OPT_FLAGS) -I../common_source -I/usr/include/bsd
--LDFLAGS	= 
-+CFLAGS	= -O2 $(OPT_FLAGS) -I../common_source -I/usr/include
-+LDFLAGS	= -s
- LDLIBS = -lcommon -L ../common_source -lbsd
- 
- SUBDIRS	= common_source filters lpc lpd lpq lpr lprm lptest pac
-@@ -14,7 +14,7 @@
- 
- install:
- 	for i in $(SUBDIRS); do make -C $$i install; done
--	install -m644 printcap.5 $(DESTDIR)/usr/man/man5/
-+	install -m644 printcap.5 $(DESTDIR)/usr/share/man/man5/
- 
- clean:
- 	for i in $(SUBDIRS); do make -C $$i clean; done
 diff -Nur lpr-0.33/common_source/pathnames.h lpr-0.33.pld/common_source/pathnames.h
 --- lpr-0.33/common_source/pathnames.h	Sun Apr 19 00:37:03 1998
 +++ lpr-0.33.pld/common_source/pathnames.h	Mon Jun  7 09:30:30 1999
@@ -43,95 +20,72 @@ diff -Nur lpr-0.33/common_source/pathnames.h lpr-0.33.pld/common_source/pathname
 +#define	_PATH_VFONTI		"/usr/share/fonts/vfont/I"
 +#define	_PATH_VFONTR		"/usr/share/fonts/vfont/R"
 +#define	_PATH_VFONTS		"/usr/share/fonts/vfont/S"
-diff -Nur lpr-0.33/lpc/Makefile lpr-0.33.pld/lpc/Makefile
---- lpr-0.33/lpc/Makefile	Mon Aug  3 23:57:40 1998
-+++ lpr-0.33.pld/lpc/Makefile	Mon Jun  7 09:31:15 1999
-@@ -3,8 +3,8 @@
- lpc:	lpc.o cmds.o cmdtab.o
+--- lpr-0.72/lpq/Makefile.orig	Thu May 17 23:53:46 2001
++++ lpr-0.72/lpq/Makefile	Mon Mar 24 17:38:49 2003
+@@ -1,6 +1,6 @@
  
- install: lpc
--	install -s -g lp -m2555 lpc $(DESTDIR)/usr/sbin/lpc
--	install -m644 lpc.8 $(DESTDIR)/usr/man/man8
-+	install -s -m2555 lpc $(DESTDIR)/usr/sbin/lpc
-+	install -m644 lpc.8 $(DESTDIR)/usr/share/man/man8
+-CFLAGS	= -Wall $(RPM_OPT_FLAGS) -I../common_source -I/usr/include/bsd
+-LDFLAGS	= 
++CFLAGS	= -Wall $(OPT_FLAGS) -I../common_source -I/usr/include/bsd
++LDFLAGS	= -s
+ LDLIBS = -lcommon -L ../common_source # -lbsd
  
- clean:
- 	rm -f lpc *.o
-diff -Nur lpr-0.33/lpd/Makefile lpr-0.33.pld/lpd/Makefile
---- lpr-0.33/lpd/Makefile	Mon Aug  3 23:57:41 1998
-+++ lpr-0.33.pld/lpd/Makefile	Mon Jun  7 09:31:27 1999
-@@ -4,7 +4,7 @@
+ all:	lpq
+--- lpr-0.72/lpr/Makefile.orig	Thu May 17 23:53:46 2001
++++ lpr-0.72/lpr/Makefile	Mon Mar 24 17:39:08 2003
+@@ -1,6 +1,6 @@
  
- install: lpd
- 	install -s -m744 lpd $(DESTDIR)/usr/sbin/lpd
--	install -m644 lpd.8 $(DESTDIR)/usr/man/man8
-+	install -m644 lpd.8 $(DESTDIR)/usr/share/man/man8
+-CFLAGS	= -Wall $(RPM_OPT_FLAGS) -I../common_source -I/usr/include/bsd
+-LDFLAGS	= 
++CFLAGS	= -Wall $(OPT_FLAGS) -I../common_source -I/usr/include/bsd
++LDFLAGS	= -s
+ LDLIBS = -lcommon -L ../common_source # -lbsd
  
- clean:
- 	rm -f lpd *.o
-diff -Nur lpr-0.33/lpq/Makefile lpr-0.33.pld/lpq/Makefile
---- lpr-0.33/lpq/Makefile	Mon Aug  3 23:57:41 1998
-+++ lpr-0.33.pld/lpq/Makefile	Mon Jun  7 09:31:48 1999
-@@ -3,8 +3,8 @@
- lpq:	lpq.o
+ all:	lpr
+--- lpr-0.72/lprm/Makefile.orig	Mon Mar 24 17:39:39 2003
++++ lpr-0.72/lprm/Makefile	Mon Mar 24 17:39:48 2003
+@@ -1,6 +1,6 @@
  
- install: lpq
--	install -s -g lp -m6555 lpq $(DESTDIR)/usr/bin
--	install lpq.1 $(DESTDIR)/usr/man/man1
-+	install -s -m6555 lpq $(DESTDIR)/usr/bin
-+	install lpq.1 $(DESTDIR)/usr/share/man/man1
+-CFLAGS	= -Wall $(RPM_OPT_FLAGS) -I../common_source -I/usr/include/bsd
+-LDFLAGS	= 
++CFLAGS	= -Wall $(OPT_FLAGS) -I../common_source -I/usr/include/bsd
++LDFLAGS	= -s
+ LDLIBS = -lcommon -L ../common_source # -lbsd
  
- clean:
- 	rm -f lpq *.o
-diff -Nur lpr-0.33/lpr/Makefile lpr-0.33.pld/lpr/Makefile
---- lpr-0.33/lpr/Makefile	Mon Aug  3 23:57:41 1998
-+++ lpr-0.33.pld/lpr/Makefile	Mon Jun  7 09:32:01 1999
-@@ -3,8 +3,8 @@
- lpr:	lpr.o
+ all:	lprm
+--- lpr-0.72/lptest/Makefile.orig	Thu May 17 23:53:46 2001
++++ lpr-0.72/lptest/Makefile	Mon Mar 24 17:40:06 2003
+@@ -1,6 +1,6 @@
  
- install: lpr
--	install -s -g lp -m6555 lpr $(DESTDIR)/usr/bin
--	install -m644 lpr.1 $(DESTDIR)/usr/man/man1
-+	install -s -m6555 lpr $(DESTDIR)/usr/bin
-+	install -m644 lpr.1 $(DESTDIR)/usr/share/man/man1
+-CFLAGS	= -Wall $(RPM_OPT_FLAGS) -I../common_source -I/usr/include/bsd
+-LDFLAGS	= 
++CFLAGS	= -Wall $(OPT_FLAGS) -I../common_source -I/usr/include/bsd
++LDFLAGS	= -s
+ LDLIBS = -lcommon -L ../common_source # -lbsd
  
- clean:
- 	rm -f lpr *.o
-diff -Nur lpr-0.33/lprm/Makefile lpr-0.33.pld/lprm/Makefile
---- lpr-0.33/lprm/Makefile	Mon Aug  3 23:57:41 1998
-+++ lpr-0.33.pld/lprm/Makefile	Mon Jun  7 09:32:18 1999
-@@ -3,8 +3,8 @@
- lprm:	lprm.o
+ all:	lptest
+--- lpr-0.72/pac/Makefile.orig	Mon Mar 24 17:40:31 2003
++++ lpr-0.72/pac/Makefile	Mon Mar 24 17:40:51 2003
+@@ -1,6 +1,6 @@
  
- install: lprm
--	install -s -g lp -m6555 lprm $(DESTDIR)/usr/bin
--	install -m644 lprm.1 $(DESTDIR)/usr/man/man1
-+	install -s -m6555 lprm $(DESTDIR)/usr/bin
-+	install -m644 lprm.1 $(DESTDIR)/usr/share/man/man1
+-CFLAGS	= -Wall $(RPM_OPT_FLAGS) -I../common_source -I/usr/include/bsd
+-LDFLAGS	= 
++CFLAGS	= -Wall $(OPT_FLAGS) -I../common_source -I/usr/include/bsd
++LDFLAGS	= -s
+ LDLIBS = -lcommon -L ../common_source # -lbsd
  
- clean:
- 	rm -f lprm *.o
-diff -Nur lpr-0.33/lptest/Makefile lpr-0.33.pld/lptest/Makefile
---- lpr-0.33/lptest/Makefile	Mon Aug  3 23:57:41 1998
-+++ lpr-0.33.pld/lptest/Makefile	Mon Jun  7 09:32:30 1999
-@@ -4,7 +4,7 @@
+ all:	pac
+--- lpr-0.72/Makefile.orig	Mon Mar 24 17:47:38 2003
++++ lpr-0.72/Makefile	Mon Mar 24 17:49:18 2003
+@@ -2,8 +2,9 @@
  
- install: lptest
- 	install -s -m755 lptest $(DESTDIR)/usr/bin
--	install -m644 lptest.1 $(DESTDIR)/usr/man/man1
-+	install -m644 lptest.1 $(DESTDIR)/usr/share/man/man1
+ VERSION=$(shell awk '/^Version:/ { print $$2 }' lpr.spec)
  
- clean:
- 	rm -f lptest *.o
-diff -Nur lpr-0.33/pac/Makefile lpr-0.33.pld/pac/Makefile
---- lpr-0.33/pac/Makefile	Mon Aug  3 23:57:41 1998
-+++ lpr-0.33.pld/pac/Makefile	Mon Jun  7 09:32:42 1999
-@@ -4,7 +4,7 @@
+-CFLAGS	= -Wall $(RPM_OPT_FLAGS) -I../common_source -I/usr/include/bsd
+-LDFLAGS	= 
++CFLAGS	= -Wall $(OPT_FLAGS) -I../common_source -I/usr/include/bsd
++LDFLAGS	= -s
++MANDIR = /usr/share/man
+ LDLIBS = -lcommon -L ../common_source # -lbsd
  
- install: pac
- 	install -s -m744 pac $(DESTDIR)/usr/sbin
--	install -m644 pac.8 $(DESTDIR)/usr/man/man8
-+	install -m644 pac.8 $(DESTDIR)/usr/share/man/man8
- 
- clean:
- 	rm -f pac *.o
+ SUBDIRS	= common_source filters lpc lpd lpq lpr lprm lptest pac
