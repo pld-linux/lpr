@@ -39,7 +39,7 @@ reçoit les travaux des clients distants.
 
 %description -l pl
 Pakiet zawiera oprogramowanie do zarz±dzania kolejkami wydruku,
-wysy³ania zadañ drukowania do drukarek localnych i zdalnych, oraz
+wysy³ania zadañ drukowania do drukarek lokalnych i zdalnych, oraz
 przyjmowania zleceñ wydruku od zdalnych klientów.
 
 %description -l tr
