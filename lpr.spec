@@ -5,7 +5,7 @@ Summary(pl):	Serwer wydruku i oprogramowanie klienckie do lokalnego i zdalnego d
 Summary(tr):	Yerel ve uzak yazýcýlara eriþim için sunucu ve istemci
 Name:		lpr
 Version:	0.33
-Release:	5
+Release:	6
 License:	distributable
 Group:		Applications/System
 Group(de):	Applikationen/System
@@ -14,6 +14,7 @@ Source0:	%{name}-%{version}.tar.gz
 #Source0:	ftp://ftp.sourceforge.net/pub/sourceforge/lpr/%{name}-%{version}.tar.bz2
 Source1:	lpd.init
 Source2:	lpd.sysconfig
+Source3:	%{name}-non-english-man-pages.tar.bz2
 Patch0:		%{name}-misc.patch
 URL:		http://lpr.sourceforge.net/
 Prereq:		/sbin/chkconfig
@@ -62,6 +63,7 @@ install -d $RPM_BUILD_ROOT%{_datadir}/fonts/vfont/{B,I,R,S}
 
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/rc.d/init.d/lpd
 install %{SOURCE2} $RPM_BUILD_ROOT/etc/sysconfig/lpd
+bzip2 -dc %{SOURCE3} | tar xf - -C $RPM_BUILD_ROOT/%{_mandir}
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
@@ -94,6 +96,10 @@ fi
 %attr(0755,root,root) %{_sbindir}/pac
 
 %{_mandir}/man[158]/*
+%lang(fi) %{_mandir}/fi/man[158]/*
+%lang(fr) %{_mandir}/fr/man[158]/*
+%lang(it) %{_mandir}/it/man[158]/*
+%lang(pl) %{_mandir}/pl/man[158]/*
 %{_datadir}/fonts
 
 %ghost /var/lock/*
