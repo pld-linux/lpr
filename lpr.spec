@@ -68,10 +68,12 @@ install %{SOURCE2} $RPM_BUILD_ROOT/etc/sysconfig/lpd
 rm -rf $RPM_BUILD_ROOT
 
 %post
-NAME=lpd; %chkconfig_add
+/sbin/chkconfig --add lpd
 
 %preun
-NAME=lpd; %chkconfig_del
+if [ "$1" = 0 ]; then
+    /sbin/chkconfig --del lpd
+fi
 
 %files
 %defattr(644,root,root,755)
