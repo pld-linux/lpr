@@ -65,14 +65,14 @@ install pac/pac $RPM_BUILD_ROOT/usr/sbin
 install filters/lpf $RPM_BUILD_ROOT/usr/sbin
 
 for i in lpq/lpq.1 lpr/lpr.1 lprm/lprm.1 lptest/lptest.1; do
-install $i $RPM_BUILD_ROOT/usr/man/man1; done
+install $i $RPM_BUILD_ROOT%{_mandir}/man1; done
 
-install printcap.5 $RPM_BUILD_ROOT/usr/man/man5
+install printcap.5 $RPM_BUILD_ROOT%{_mandir}/man5
 
 for i in lpc/lpc.8 lpd/lpd.8 pac/pac.8; do
-install $i $RPM_BUILD_ROOT/usr/man/man8; done
+install $i $RPM_BUILD_ROOT%{_mandir}/man8; done
 
-gzip -9fn $RPM_BUILD_ROOT/usr/man/man[158]/*
+gzip -9fn $RPM_BUILD_ROOT%{_mandir}/man[158]/*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -96,7 +96,7 @@ fi
 %attr(0755,root,lp) /usr/bin/lptest
 
 %attr(755,root,root) /usr/sbin/*
-%attr(644,root, man) /usr/man/man[158]/*
+%attr(644,root, man) %{_mandir}/man[158]/*
 
 %changelog
 * Wed Sep 30 1998 Marcin Korzonek <mkorz@shadow.eu.org>
