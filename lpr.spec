@@ -57,7 +57,7 @@ rm -rf $RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT/{etc/{rc.d/init.d,sysconfig},var/lock}
 install -d $RPM_BUILD_ROOT%{_prefix}/{bin,sbin,share/man/man{1,5,8}}
-install -d $RPM_BUILD_ROOT%{_datadir}/fonts/vfont/{B,I,R,S}
+install -d $RPM_BUILD_ROOT%{_fontsdir}/vfont/{B,I,R,S}
 
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/rc.d/init.d/lpd
 install %{SOURCE2} $RPM_BUILD_ROOT/etc/sysconfig/lpd
@@ -75,7 +75,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %preun
 if [ "$1" = 0 ]; then
-    /sbin/chkconfig --del lpd
+	/sbin/chkconfig --del lpd
 fi
 
 %files
@@ -98,6 +98,6 @@ fi
 %lang(fr) %{_mandir}/fr/man[158]/*
 %lang(it) %{_mandir}/it/man[158]/*
 %lang(pl) %{_mandir}/pl/man[158]/*
-%{_datadir}/fonts
+%{_fontsdir}/vfont
 
 %ghost /var/lock/*
