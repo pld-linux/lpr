@@ -12,7 +12,7 @@ Source0:	http://dl.sourceforge.net/lpr/%{name}-%{version}.tar.gz
 # Source0-md5:	f2a46147427f20863f98b87cd9a0d772
 Source1:	lpd.init
 Source2:	lpd.sysconfig
-Source3:	%{name}-non-english-man-pages.tar.bz2
+Source3:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source3-md5:	aaa4f77e36d8778eda8f88587f7f7c4e
 Patch0:		%{name}-misc.patch
 Patch1:		%{name}-rmjobfix.patch
