@@ -15,7 +15,7 @@ Source2:	lpd.sysconfig
 Patch0:		%{name}-misc.patch
 Prereq:		/sbin/chkconfig
 Requires:	rc-scripts
-Buildroot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 This package manages printing services. It manages print queues, sends jobs
