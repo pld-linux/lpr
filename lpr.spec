@@ -45,7 +45,7 @@ Yerel ve uzak yazýcýlara iþ yollar ve uzak istemcilerden iþ kabul eder.
 %patch -p1
 
 %build
-make OPT_FLAGS="$RPM_OPT_FLAGS"
+%{__make} OPT_FLAGS="$RPM_OPT_FLAGS"
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -57,7 +57,7 @@ install -d $RPM_BUILD_ROOT%{_datadir}/fonts/vfont/{B,I,R,S}
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/rc.d/init.d/lpd
 install %{SOURCE2} $RPM_BUILD_ROOT/etc/sysconfig/lpd
 
-make install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install DESTDIR=$RPM_BUILD_ROOT
 
 gzip -9fn $RPM_BUILD_ROOT%{_mandir}/man[158]/*
 
