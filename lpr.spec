@@ -96,7 +96,7 @@ fi
 %attr(0755,root,lp) /usr/bin/lptest
 
 %attr(755,root,root) /usr/sbin/*
-%attr(644,root, man) %{_mandir}/man[158]/*
+%{_mandir}/man[158]/*
 
 %changelog
 * Wed Sep 30 1998 Marcin Korzonek <mkorz@shadow.eu.org>
