@@ -17,8 +17,8 @@ Source3:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-ma
 Patch0:		%{name}-misc.patch
 Patch1:		%{name}-rmjobfix.patch
 URL:		http://lpr.sourceforge.net/
-Prereq:		/sbin/chkconfig
-Prereq:		rc-scripts
+PreReq:		rc-scripts
+Requires(post,preun):	/sbin/chkconfig
 Obsoletes:	LPRng
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -53,20 +53,22 @@ kabul eder.
 %patch1 -p0
 
 %build
-%{__make} OPT_FLAGS="%{rpmcflags}"
+%{__make} \
+	OPT_FLAGS="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT/{etc/{rc.d/init.d,sysconfig},var/lock}
-install -d $RPM_BUILD_ROOT%{_prefix}/{bin,sbin,share/man/man{1,5,8}}
-install -d $RPM_BUILD_ROOT%{_fontsdir}/vfont/{B,I,R,S}
+install -d $RPM_BUILD_ROOT{/etc/{rc.d/init.d,sysconfig},/var/lock} \
+	$RPM_BUILD_ROOT{%{_bindir},%{_sbindir},%{_mandir}/man{1,5,8}} \
+	$RPM_BUILD_ROOT%{_fontsdir}/vfont/{B,I,R,S}
 
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/rc.d/init.d/lpd
 install %{SOURCE2} $RPM_BUILD_ROOT/etc/sysconfig/lpd
-bzip2 -dc %{SOURCE3} | tar xf - -C $RPM_BUILD_ROOT/%{_mandir}
+bzip2 -dc %{SOURCE3} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 :> $RPM_BUILD_ROOT/var/lock/lpd.lock
 
