@@ -17,8 +17,8 @@ Source3:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-ma
 Patch0:		%{name}-misc.patch
 Patch1:		%{name}-rmjobfix.patch
 URL:		http://lpr.sourceforge.net/
-PreReq:		rc-scripts
 Requires(post,preun):	/sbin/chkconfig
+Requires:	rc-scripts
 Obsoletes:	LPRng
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -87,17 +87,17 @@ fi
 %files
 %defattr(644,root,root,755)
 %attr(754,root,root) /etc/rc.d/init.d/lpd
-%attr(640,root,root) %config %verify(not size mtime md5) /etc/sysconfig/*
+%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/sysconfig/*
 
 %attr(4710,root,lp) %{_bindir}/lpq
 %attr(4710,root,lp) %{_bindir}/lpr
 %attr(4710,root,lp) %{_bindir}/lprm
-%attr(0755,root,lp) %{_bindir}/lptest
+%attr(755,root,lp) %{_bindir}/lptest
 
 %attr(2710,root,lp)   %{_sbindir}/lpc
-%attr(0755,root,root) %{_sbindir}/lpd
-%attr(0755,root,root) %{_sbindir}/lpf
-%attr(0755,root,root) %{_sbindir}/pac
+%attr(755,root,root) %{_sbindir}/lpd
+%attr(755,root,root) %{_sbindir}/lpf
+%attr(755,root,root) %{_sbindir}/pac
 
 %{_mandir}/man[158]/*
 %lang(fi) %{_mandir}/fi/man[158]/*
