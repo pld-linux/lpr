@@ -49,7 +49,7 @@ kabul eder.
 
 %prep
 %setup -q
-%patch -p1
+%patch0 -p1
 %patch1 -p0
 
 %build
