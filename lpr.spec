@@ -1,8 +1,8 @@
 Summary:	Print server and client for local and remote printing
-Summary(de):	Druckserver und Client zum Drucken im Lokal- und Fernbetrieb
-Summary(fr):	Serveur d'impression et client pour l'impression locale ou distante
-Summary(pl):	Serwer wydruku i oprogramowanie klienckie do lokalnego i zdalnego drukowania
-Summary(tr):	Yerel ve uzak yazıcılara erişim için sunucu ve istemci
+Summary(de.UTF-8):   Druckserver und Client zum Drucken im Lokal- und Fernbetrieb
+Summary(fr.UTF-8):   Serveur d'impression et client pour l'impression locale ou distante
+Summary(pl.UTF-8):   Serwer wydruku i oprogramowanie klienckie do lokalnego i zdalnego drukowania
+Summary(tr.UTF-8):   Yerel ve uzak yazÄ±cÄ±lara eriÅŸim iÃ§in sunucu ve istemci
 Name:		lpr
 Version:	0.72
 Release:	2.1
@@ -27,24 +27,24 @@ This package manages printing services. It manages print queues, sends
 jobs to local printers and remote pritners, and accepts jobs from
 remote clients.
 
-%description -l de
-Dieses Paket ist zuständig für Druckdienste. Es verwaltet
-Druckwarteschlangen, versendet Aufträge an lokal angeschlossene und
-entfernte Drucker und nimmt Aufträge von Remote-Clients entgegen.
+%description -l de.UTF-8
+Dieses Paket ist zustÃ¤ndig fÃ¼r Druckdienste. Es verwaltet
+Druckwarteschlangen, versendet AuftrÃ¤ge an lokal angeschlossene und
+entfernte Drucker und nimmt AuftrÃ¤ge von Remote-Clients entgegen.
 
-%description -l fr
-Ce paquetage gère les services d'impression. Il s'occupe des files
+%description -l fr.UTF-8
+Ce paquetage gÃ¨re les services d'impression. Il s'occupe des files
 d'attente, envoie les travaux aux imprimantes locales et distantes et
-reçoit les travaux des clients distants.
+reÃ§oit les travaux des clients distants.
 
-%description -l pl
-Pakiet zawiera oprogramowanie do zarz±dzania kolejkami wydruku,
-wysy³ania zadañ drukowania do drukarek lokalnych i zdalnych, oraz
-przyjmowania zleceñ wydruku od zdalnych klientów.
+%description -l pl.UTF-8
+Pakiet zawiera oprogramowanie do zarzÄ…dzania kolejkami wydruku,
+wysyÅ‚ania zadaÅ„ drukowania do drukarek lokalnych i zdalnych, oraz
+przyjmowania zleceÅ„ wydruku od zdalnych klientÃ³w.
 
-%description -l tr
-Bu paket, yazdırma hizmetlerini, yani paket yazıcı kuyruklarını
-yönetir. Yerel ve uzak yazıcılara iş yollar ve uzak istemcilerden iş
+%description -l tr.UTF-8
+Bu paket, yazdÄ±rma hizmetlerini, yani paket yazÄ±cÄ± kuyruklarÄ±nÄ±
+yÃ¶netir. Yerel ve uzak yazÄ±cÄ±lara iÅŸ yollar ve uzak istemcilerden iÅŸ
 kabul eder.
 
 %prep
