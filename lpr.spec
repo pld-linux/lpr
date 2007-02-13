@@ -1,8 +1,8 @@
 Summary:	Print server and client for local and remote printing
-Summary(de.UTF-8):   Druckserver und Client zum Drucken im Lokal- und Fernbetrieb
-Summary(fr.UTF-8):   Serveur d'impression et client pour l'impression locale ou distante
-Summary(pl.UTF-8):   Serwer wydruku i oprogramowanie klienckie do lokalnego i zdalnego drukowania
-Summary(tr.UTF-8):   Yerel ve uzak yazıcılara erişim için sunucu ve istemci
+Summary(de.UTF-8):	Druckserver und Client zum Drucken im Lokal- und Fernbetrieb
+Summary(fr.UTF-8):	Serveur d'impression et client pour l'impression locale ou distante
+Summary(pl.UTF-8):	Serwer wydruku i oprogramowanie klienckie do lokalnego i zdalnego drukowania
+Summary(tr.UTF-8):	Yerel ve uzak yazıcılara erişim için sunucu ve istemci
 Name:		lpr
 Version:	0.72
 Release:	2.1
