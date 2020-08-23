@@ -26,7 +26,7 @@ diff -Nur lpr-0.33/common_source/pathnames.h lpr-0.33.pld/common_source/pathname
  
 -CFLAGS	= -Wall $(RPM_OPT_FLAGS) -I../common_source -I/usr/include/bsd
 -LDFLAGS	= 
-+CFLAGS	= -Wall $(OPT_FLAGS) -I../common_source -I/usr/include/bsd
++CFLAGS	= -Wall $(OPT_FLAGS) -I../common_source
 +LDFLAGS	= -s
  LDLIBS = -lcommon -L ../common_source # -lbsd
  
@@ -37,7 +37,7 @@ diff -Nur lpr-0.33/common_source/pathnames.h lpr-0.33.pld/common_source/pathname
  
 -CFLAGS	= -Wall $(RPM_OPT_FLAGS) -I../common_source -I/usr/include/bsd
 -LDFLAGS	= 
-+CFLAGS	= -Wall $(OPT_FLAGS) -I../common_source -I/usr/include/bsd
++CFLAGS	= -Wall $(OPT_FLAGS) -I../common_source
 +LDFLAGS	= -s
  LDLIBS = -lcommon -L ../common_source # -lbsd
  
@@ -48,7 +48,7 @@ diff -Nur lpr-0.33/common_source/pathnames.h lpr-0.33.pld/common_source/pathname
  
 -CFLAGS	= -Wall $(RPM_OPT_FLAGS) -I../common_source -I/usr/include/bsd
 -LDFLAGS	= 
-+CFLAGS	= -Wall $(OPT_FLAGS) -I../common_source -I/usr/include/bsd
++CFLAGS	= -Wall $(OPT_FLAGS) -I../common_source
 +LDFLAGS	= -s
  LDLIBS = -lcommon -L ../common_source # -lbsd
  
@@ -59,7 +59,7 @@ diff -Nur lpr-0.33/common_source/pathnames.h lpr-0.33.pld/common_source/pathname
  
 -CFLAGS	= -Wall $(RPM_OPT_FLAGS) -I../common_source -I/usr/include/bsd
 -LDFLAGS	= 
-+CFLAGS	= -Wall $(OPT_FLAGS) -I../common_source -I/usr/include/bsd
++CFLAGS	= -Wall $(OPT_FLAGS) -I../common_source
 +LDFLAGS	= -s
  LDLIBS = -lcommon -L ../common_source # -lbsd
  
@@ -70,7 +70,7 @@ diff -Nur lpr-0.33/common_source/pathnames.h lpr-0.33.pld/common_source/pathname
  
 -CFLAGS	= -Wall $(RPM_OPT_FLAGS) -I../common_source -I/usr/include/bsd
 -LDFLAGS	= 
-+CFLAGS	= -Wall $(OPT_FLAGS) -I../common_source -I/usr/include/bsd
++CFLAGS	= -Wall $(OPT_FLAGS) -I../common_source
 +LDFLAGS	= -s
  LDLIBS = -lcommon -L ../common_source # -lbsd
  
@@ -83,9 +83,45 @@ diff -Nur lpr-0.33/common_source/pathnames.h lpr-0.33.pld/common_source/pathname
  
 -CFLAGS	= -Wall $(RPM_OPT_FLAGS) -I../common_source -I/usr/include/bsd
 -LDFLAGS	= 
-+CFLAGS	= -Wall $(OPT_FLAGS) -I../common_source -I/usr/include/bsd
++CFLAGS	= -Wall $(OPT_FLAGS) -I../common_source
 +LDFLAGS	= -s
 +MANDIR = /usr/share/man
  LDLIBS = -lcommon -L ../common_source # -lbsd
  
  SUBDIRS	= common_source filters lpc lpd lpq lpr lprm lptest pac
+--- lpr-0.72/common_source/Makefile.orig	2001-05-23 23:51:04.000000000 +0200
++++ lpr-0.72/common_source/Makefile	2020-08-22 21:18:13.220675632 +0200
+@@ -1,5 +1,5 @@
+ 
+-CFLAGS	= -Wall $(RPM_OPT_FLAGS) -I../common_source -I/usr/include/bsd
++CFLAGS	= -Wall $(OPT_FLAGS) -I../common_source
+ LDFLAGS	= 
+ LDLIBS = -lcommon -L ../common_source # -lbsd
+ 
+--- lpr-0.72/filters/Makefile.orig	2001-05-17 23:53:46.000000000 +0200
++++ lpr-0.72/filters/Makefile	2020-08-22 22:27:43.974747385 +0200
+@@ -1,5 +1,5 @@
+ 
+-CFLAGS	= -Wall $(RPM_OPT_FLAGS) -I../common_source -I/usr/include/bsd
++CFLAGS	= -Wall $(OPT_FLAGS) -I../common_source
+ LDFLAGS	= 
+ LDLIBS = -lcommon -L ../common_source # -lbsd
+ 
+--- lpr-0.72/lpc/Makefile.orig	2001-05-17 23:53:46.000000000 +0200
++++ lpr-0.72/lpc/Makefile	2020-08-22 22:31:19.033582311 +0200
+@@ -1,5 +1,5 @@
+ 
+-CFLAGS= -Wall $(RPM_OPT_FLAGS) -I../common_source -I/usr/include/bsd
++CFLAGS= -Wall $(OPT_FLAGS) -I../common_source
+ LDFLAGS= 
+ LDLIBS= -lcommon -L ../common_source # -lbsd
+ 
+--- lpr-0.72/lpd/Makefile.orig	2001-05-17 23:53:46.000000000 +0200
++++ lpr-0.72/lpd/Makefile	2020-08-22 22:37:46.854814637 +0200
+@@ -1,5 +1,5 @@
+ 
+-CFLAGS	= -Wall $(RPM_OPT_FLAGS) -I../common_source -I/usr/include/bsd
++CFLAGS	= -Wall $(OPT_FLAGS) -I../common_source
+ LDFLAGS	= 
+ LDLIBS = -L ../common_source -lcommon 
+ 

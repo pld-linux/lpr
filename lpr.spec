@@ -6,9 +6,9 @@ Summary(tr.UTF-8):	Yerel ve uzak yazıcılara erişim için sunucu ve istemci
 Name:		lpr
 Version:	0.72
 Release:	2.2
-License:	distributable
+License:	BSD
 Group:		Applications/System
-Source0:	http://dl.sourceforge.net/lpr/%{name}-%{version}.tar.gz
+Source0:	http://downloads.sourceforge.net/lpr/%{name}-%{version}.tar.gz
 # Source0-md5:	f2a46147427f20863f98b87cd9a0d772
 Source1:	lpd.init
 Source2:	lpd.sysconfig
@@ -16,6 +16,10 @@ Source3:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-ma
 # Source3-md5:	aaa4f77e36d8778eda8f88587f7f7c4e
 Patch0:		%{name}-misc.patch
 Patch1:		%{name}-rmjobfix.patch
+Patch2:		%{name}-getline.patch
+Patch3:		%{name}-gcc.patch
+Patch4:		%{name}-format.patch
+Patch5:		%{name}-wait.patch
 URL:		http://lpr.sourceforge.net/
 Requires(post,preun):	/sbin/chkconfig
 Requires:	rc-scripts
@@ -54,14 +58,18 @@ kabul eder.
 %setup -q
 %patch0 -p1
 %patch1 -p0
+%patch2 -p1
+%patch3 -p1
+%patch4 -p1
+%patch5 -p1
 
 %build
 %{__make} \
+	CC="%{__cc}" \
 	OPT_FLAGS="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 install -d $RPM_BUILD_ROOT{/etc/{rc.d/init.d,sysconfig},/var/lock} \
 	$RPM_BUILD_ROOT{%{_bindir},%{_sbindir},%{_mandir}/man{1,5,8}} \
 	$RPM_BUILD_ROOT%{_fontsdir}/vfont/{B,I,R,S} \
@@ -90,25 +98,32 @@ fi
 %files
 %defattr(644,root,root,755)
 %attr(754,root,root) /etc/rc.d/init.d/lpd
-%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/sysconfig/*
+%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/sysconfig/lpd
 
 %attr(4710,root,lp) %{_bindir}/lpq
 %attr(4710,root,lp) %{_bindir}/lpr
 %attr(4710,root,lp) %{_bindir}/lprm
 %attr(755,root,lp) %{_bindir}/lptest
 
-%attr(2710,root,lp)   %{_sbindir}/lpc
+%attr(2710,root,lp) %{_sbindir}/lpc
 %attr(755,root,root) %{_sbindir}/lpd
 %attr(755,root,root) %{_sbindir}/lpf
 %attr(755,root,root) %{_sbindir}/pac
 
-%{_mandir}/man[158]/*
+%{_mandir}/man1/lpq.1*
+%{_mandir}/man1/lpr.1*
+%{_mandir}/man1/lprm.1*
+%{_mandir}/man1/lptest.1*
+%{_mandir}/man5/printcap.5*
+%{_mandir}/man8/lpc.8*
+%{_mandir}/man8/lpd.8*
+%{_mandir}/man8/pac.8*
 %lang(fi) %{_mandir}/fi/man[158]/*
 %lang(fr) %{_mandir}/fr/man[158]/*
 %lang(it) %{_mandir}/it/man[158]/*
 %lang(pl) %{_mandir}/pl/man[158]/*
 %{_fontsdir}/vfont
 
-%ghost /var/lock/*
+%ghost /var/lock/lpd.lock
 %dir %attr(770,root,lp) %{_var}/spool/lpd
 %dir %attr(770,root,lp) %{_var}/spool/lpd/lp

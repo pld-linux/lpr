@@ -1,0 +1,19 @@
+--- lpr-0.72/common_source/common.c.orig	2020-08-22 21:25:29.854976847 +0200
++++ lpr-0.72/common_source/common.c	2020-08-22 21:27:42.610924313 +0200
+@@ -188,6 +188,8 @@
+ 	return(linel);
+ }
+ 
++static int compar(register struct queue **p1, register struct queue **p2);
++
+ /*
+  * Scan the current directory and make a list of daemon files sorted by
+  * creation time.
+@@ -203,7 +205,6 @@
+ 	struct stat stbuf;
+ 	DIR *dirp;
+ 	int arraysz;
+-	static int compar();
+ 
+ 	if ((dirp = opendir(SD)) == NULL)
+ 		return(-1);
